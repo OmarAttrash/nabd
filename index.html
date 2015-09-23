@@ -8,12 +8,28 @@
 	<body>
 		<script>
 		  window.fbAsyncInit = function() {
-			FB.init({
-			  appId      : '138466529835768',
-			  xfbml      : true,
-			  version    : 'v2.4'
+			Parse.FacebookUtils.init({
+				appId      : '138466529835768',
+				status     : true,  // check Facebook Login status
+				cookie     : true,  // enable cookies to allow Parse to access the session
+				xfbml      : true,
+				version    : 'v2.4'
 			});
-		  };
+			
+			// Run code after the Facebook SDK is loaded.
+			Parse.FacebookUtils.logIn(null, {
+			  success: function(user) {
+				if (!user.existed()) {
+				  alert("User signed up and logged in through Facebook!");
+				} else {
+				  alert("User logged in through Facebook!");
+				}
+			  },
+			  error: function(user, error) {
+				alert("User cancelled the Facebook login or did not fully authorize.");
+			  }
+			});
+		 };
 
 		  (function(d, s, id){
 			 var js, fjs = d.getElementsByTagName(s)[0];
