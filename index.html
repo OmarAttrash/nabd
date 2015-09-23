@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<script>
+			Parse.initialize("KOqXqY8Sovm20CmDXxPquj1en91Bn5cAmteeoBG8", "NIXpiZJmKu3M26AQQIHO0fc7qWJZIpMdl9VYwCPy");
 		  window.fbAsyncInit = function() {
 			Parse.FacebookUtils.init({
 				appId      : '138466529835768',
@@ -19,7 +20,7 @@
 			});
 			
 			// Run code after the Facebook SDK is loaded.
-			Parse.initialize("KOqXqY8Sovm20CmDXxPquj1en91Bn5cAmteeoBG8", "NIXpiZJmKu3M26AQQIHO0fc7qWJZIpMdl9VYwCPy");
+		
 			Parse.FacebookUtils.logIn(null, {
 			  success: function(user) {
 				if (!user.existed()) {
