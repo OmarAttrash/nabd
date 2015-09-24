@@ -31,7 +31,7 @@
 			window.fbAsyncInit = function() {
 			Parse.FacebookUtils.init({
 				appId      : '138466529835768',
-				status     : true,  // check Facebook Login status
+				//status     : true,  // check Facebook Login status
 				cookie     : true,  // enable cookies to allow Parse to access the session
 				xfbml      : true,
 				version    : 'v2.4'
@@ -46,6 +46,7 @@
 			 
 			
 			  if (Parse.User.current() != null) {
+				console.dir(Parse.User.current());
 				this.logged = true ;
 			  }else{
 				this.logged = false ;
