@@ -47,7 +47,6 @@
 			
 			  if (Parse.User.current() != null) {
 				console.dir(Parse.User.current());
-				console.dir(FB);
 				this.logged = true ;
 			  }else{
 				this.logged = false ;
@@ -65,9 +64,10 @@
 			Parse.FacebookUtils.logIn("public_profile,email", {
 				success: function(user) {
 					if (!user.existed()) {
-					  alert("User signed up and logged in through Facebook!");
+						console.dir(user);
+						alert("User signed up and logged in through Facebook!");
 					} else {
-					  alert("User logged in through Facebook!");
+						alert("User logged in through Facebook!");
 					}
 				},
 				error: function(user, error) {
