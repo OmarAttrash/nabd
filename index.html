@@ -11,35 +11,31 @@
 		<link rel="import" href="bower_components/iron-pages/iron-pages.html">
 		<link rel="import" href="components/o-parse/o-parse-connect.html"></script>
 		<link rel="import" href="components/o-parse/o-parse-login-button.html"></script>
-	
-			<script>
-			$(document).ready(function(){
-			
-			$(document).on('logged','o-parse-login-button', function (e) {
-					console.log(e.detail.logStatus);
-					console.log("a");
-				if(e.detail.logStatus){
-					
-						document.querySelector('iron-pages').selected = 1;
-				}
-			});
-			document.querySelector('o-parse-login-button').addEventListener('readyy', function (e) {
-					console.log("rrr");
-			});
-			   document.querySelector('o-parse-login-button').addEventListener('hii', function (e) {
-				console.log("button click"); // true
-			});
-			});
-			
-		</script>
 	</head>
 	<body>
-		<o-parse-connect></o-parse-connect>
-		<iron-pages selected="0">
-		  <div><o-parse-login-button id="login"></o-parse-login-button></div>
-		  <div>Two</div>
-		  <div>Three</div>
-		</iron-pages>
+	
+	<dom-module id="o-pull-app">
+		<template>
+			<o-parse-connect></o-parse-connect>
+			<iron-pages selected="0">
+			 <div><o-parse-login-button roperty-changed="loging" logged="{{userStatus}}" id="login"></o-parse-login-button></div>
+			 <div>Two</div>
+			 <div>Three</div>
+			</iron-pages>
+		</template>
+		<script>
+			Polymer({
+				is:"o-pull-app",
+				ready:function(){
+				
+				},
+				loging : function(){
+					console.log(this.userStatus);
+				}
+			});
+		</script>
+	</dom-module>
+	<o-pull-app></o-pull-app>
 		
 	
 	</body>
