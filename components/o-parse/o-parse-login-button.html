@@ -15,7 +15,6 @@
 			}
 		},
 		ready: function(){
-			this.fire('readyy');
 			if (typeof Parse === 'undefined') {
 				console.log("Using o-parse-login-button require initing the Parse elsewhere. check if o-parse-connect element inculded before this element");
 				return;
@@ -38,7 +37,6 @@
 			 
 			
 			 if (Parse.User.current() != null) {
-				this.fire('logged',{logStatus:true});
 				this.logged = true ;
 			  }else{
 				this.logged = false ;
@@ -53,10 +51,11 @@
 			Parse.FacebookUtils.logIn("public_profile,email", {
 				success: function(user) {
 					if (!user.existed()) {
-						console.dir(user);
+						this.fire('logged',{logStatus:true});
 						alert("User signed up and logged in through Facebook!");
 						this.logged = true ;
 					} else {
+						this.fire('logged',{logStatus:true});
 						alert("User logged in through Facebook!");
 						this.logged = true ;
 					}
