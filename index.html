@@ -15,7 +15,7 @@
 			<script>
 			$(document).ready(function(){
 			
-			document.querySelector('o-parse-login-button').addEventListener('logged', function (e) {
+			$(document).on('logged','o-parse-login-button', function (e) {
 					console.log(e.detail.logStatus);
 					console.log("a");
 				if(e.detail.logStatus){
