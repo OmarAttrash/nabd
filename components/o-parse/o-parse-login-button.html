@@ -24,6 +24,10 @@
 			}
 		},
 		ready: function(){
+			if (typeof Parse === 'undefined') {
+				console.log("Using o-parse-login-button require initing the Parse elsewhere. check if o-parse-connect element inculded before this element");
+				return;
+			}
 			window.fbAsyncInit = function() {
 			Parse.FacebookUtils.init({
 				appId      : '138466529835768',
