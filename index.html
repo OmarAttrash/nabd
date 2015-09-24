@@ -32,6 +32,13 @@
 					alert('Failed to create new object, with error code: ' + error.message);
 				}
 			});
+			
+			var Pulls = Parse.Collection.extend();
+			var pulls = new Pulls;
+			pulls.query = new Parse.Query(Pull);
+			pulls.fetch();
+			console.dir(pulls);
+			
 			$("#fb-login").on("click",function(){
 						
 				Parse.FacebookUtils.logIn(null, {
