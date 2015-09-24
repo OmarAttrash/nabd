@@ -37,7 +37,7 @@
 			 
 			
 			  if (Parse.User.current() != null) {
-				console.dir(Parse.User.current());
+				this.fire('logged',{logStatus:true});
 				this.logged = true ;
 			  }else{
 				this.logged = false ;

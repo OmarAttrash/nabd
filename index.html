@@ -15,14 +15,14 @@
 			<script>
 			$(document).ready(function(){
 			
-			document.getElementById('login').addEventListener('logged', function (e) {
+			document.querySelector('o-parse-login-button').addEventListener('logged', function (e) {
 					console.log(e.detail.logStatus);
 				if(e.detail.logStatus){
 					
 						document.querySelector('iron-pages').selected = 1;
 				}
 			});
-			document.getElementById('login').addEventListener('readyy', function (e) {
+			document.querySelector('o-parse-login-button').addEventListener('readyy', function (e) {
 					console.log("rrr");
 			});
 			   document.querySelector('o-parse-login-button').addEventListener('hii', function (e) {
