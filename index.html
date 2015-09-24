@@ -22,7 +22,9 @@
 		
 		<script>
 			document.querySelector('o-parse-login-button').addEventListener('logged', function (e) {
+					console.log(e.detail.logStatus);
 				if(e.detail.logStatus){
+					
 						document.querySelector('iron-pages').selected = 1;
 				}
 			})
