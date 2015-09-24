@@ -1,0 +1,29 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<dom-module id="o-parse-login-button">
+	<template>
+		<button on-click="{{loginFacebook}}">Facebook login</button>
+	</template>
+</dom-module>
+
+<script>
+	Polymer({
+		is:"o-parse-login-button",
+		properties:{
+			loginFacebook:function(){		
+				Parse.FacebookUtils.logIn(null, {
+					success: function(user) {
+					if (!user.existed()) {
+					  alert("User signed up and logged in through Facebook!");
+					} else {
+					  alert("User logged in through Facebook!");
+					}
+					},
+					error: function(user, error) {
+						alert("User cancelled the Facebook login or did not fully authorize.");
+					}
+				});
+			}
+		}
+	});
+</script>

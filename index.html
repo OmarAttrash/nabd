@@ -6,19 +6,15 @@
 		</title>
 		  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+		<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="bower_components/polymer/polymer.html">
+		<link rel="import" href="bower_components/o-parse/o-parse-connect.html"></script>
+		<link rel="import" href="bower_components/o-parse/o-parse-login-button.html"></script>
 	</head>
 	<body>
-		<script>
-			Parse.initialize("KOqXqY8Sovm20CmDXxPquj1en91Bn5cAmteeoBG8", "NIXpiZJmKu3M26AQQIHO0fc7qWJZIpMdl9VYwCPy");
-			window.fbAsyncInit = function() {
-			Parse.FacebookUtils.init({
-				appId      : '138466529835768',
-				//status     : true,  // check Facebook Login status
-				cookie     : true,  // enable cookies to allow Parse to access the session
-				xfbml      : true,
-				version    : 'v2.4'
-			});
-			
+		<o-parse-connect></o-parse-connect>
+		<o-parse-login-button></o-parse-login-button>
+		<script>/*
 			// Run code after the Facebook SDK is loaded.
 			var Pull = Parse.Object.extend("Pull");
 			var pull = new Pull();
@@ -39,33 +35,10 @@
 			pulls.fetch();
 			console.dir(pulls);
 			
-			$("#fb-login").on("click",function(){
-						
-				Parse.FacebookUtils.logIn(null, {
-			  success: function(user) {
-				if (!user.existed()) {
-				  alert("User signed up and logged in through Facebook!");
-				} else {
-				  alert("User logged in through Facebook!");
-				}
-			  },
-			  error: function(user, error) {
-				alert("User cancelled the Facebook login or did not fully authorize.");
-			  }
-			});
-			});
-		 };
-
-		  (function(d, s, id){
-			 var js, fjs = d.getElementsByTagName(s)[0];
-			 if (d.getElementById(id)) {return;}
-			 js = d.createElement(s); js.id = id;
-			 js.src = "//connect.facebook.net/en_US/sdk.js";
-			 fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
+		 };*/
 		</script>
-		<button id="fb-login">Facebook login</button>
-		<h1>The 3 test had succesed</h1>
+		
+		<h1>The 4 test had succesed</h1>
 		<p>keep going</p>
 	</body>
 </html>
