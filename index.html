@@ -21,13 +21,20 @@
 		</iron-pages>
 		
 		<script>
+			$(document).ready(function(){
+			
 			document.querySelector('o-parse-login-button').addEventListener('logged', function (e) {
 					console.log(e.detail.logStatus);
 				if(e.detail.logStatus){
 					
 						document.querySelector('iron-pages').selected = 1;
 				}
-			})
+			});
+			document.querySelector('o-parse-login-button').addEventListener('readyy', function (e) {
+					console.log("rrr");
+			});
+			});
+			
 		</script>
 	</body>
 </html>
