@@ -48,21 +48,22 @@
 				console.log("Something went tirrable");
 				return;
 			}
+			var root = this;
 			Parse.FacebookUtils.logIn("public_profile,email", {
 				success: function(user) {
 					if (!user.existed()) {
-						this.fire('logged',{logStatus:true});
+						root.fire('logged',{logStatus:true});
 						alert("User signed up and logged in through Facebook!");
-						this.logged = true ;
+						root.logged = true ;
 					} else {
-						this.fire('logged',{logStatus:true});
+						root.fire('logged',{logStatus:true});
 						alert("User logged in through Facebook!");
-						this.logged = true ;
+						root.logged = true ;
 					}
 				},
 				error: function(user, error) {
 					alert("User cancelled the Facebook login or did not fully authorize.");
-					this.logged = false ;
+					root.logged = false ;
 				}
 			});
 		}
