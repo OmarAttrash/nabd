@@ -24,7 +24,6 @@
 			}
 		},
 		ready: function(){
-			console.dir( Parse.User.current());
 			if (typeof Parse === 'undefined') {
 				console.log("Using o-parse-login-button require initing the Parse elsewhere. check if o-parse-connect element inculded before this element");
 				return;
@@ -45,14 +44,12 @@
 			 fjs.parentNode.insertBefore(js, fjs);
 			 
 			 
-			FB.getLoginStatus(function(response) {
-				console.dir(response);
-			  if (response.status === 'connected') {
+			
+			  if (Parse.User.current() != null) {
 				this.logged = true ;
 			  }else{
 				this.logged = false ;
 			  }
-		   });
 		   if(this.logged){
 			this.$.loggin.style.display = 'none';
 		   }
