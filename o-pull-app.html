@@ -1,0 +1,28 @@
+<link rel="import" href="bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="components/o-parse/o-parse-connect.html"></script>
+<link rel="import" href="components/o-parse/o-parse-login-button.html"></script>
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="o-pull-app">
+	<template>
+		<o-parse-connect></o-parse-connect>
+		<iron-pages id="pages" selected="0">
+			<div><o-parse-login-button roperty-changed="loging" logged="{{userStatus}}" id="login"></o-parse-login-button></div>
+			<div>Two</div>
+			<div>Three</div>
+		</iron-pages>
+	</template>
+	<script>
+		Polymer({
+			is:"o-pull-app",
+			ready:function(){
+				this.loging();
+			},
+			loging : function(){
+				if(this.userStatus === true){
+					this.$.pages.selected = 1;
+				}
+			}
+			});
+	</script>
+</dom-module>

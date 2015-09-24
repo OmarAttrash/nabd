@@ -37,20 +37,16 @@
 			 
 			 
 			
-			  if (Parse.User.current() != null) {
+			 if (Parse.User.current() != null) {
 				this.fire('logged',{logStatus:true});
 				this.logged = true ;
 			  }else{
 				this.logged = false ;
 			  }
-		   if(this.logged){
-				this.fire('logged',{logStatus:true});
-		   }
 		},
 		
 		loginFacebook: function(){		
 			if(this.logged){
-				this.fire('hii');
 				console.log("Something went tirrable");
 				return;
 			}
@@ -59,16 +55,15 @@
 					if (!user.existed()) {
 						console.dir(user);
 						alert("User signed up and logged in through Facebook!");
-						this.fire('logged',{logStatus:true});
+						this.logged = true ;
 					} else {
-					console.dir(user);
 						alert("User logged in through Facebook!");
-						this.fire('logged',{logStatus:true});
+						this.logged = true ;
 					}
 				},
 				error: function(user, error) {
 					alert("User cancelled the Facebook login or did not fully authorize.");
-					this.fire('logged',{logStatus:false});
+					this.logged = false ;
 				}
 			});
 		}
