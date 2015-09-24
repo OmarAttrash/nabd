@@ -4,23 +4,15 @@
 		<title>
 			nabd testing
 		</title>
-		  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 		<link rel="import" href="bower_components/polymer/polymer.html">
 		<link rel="import" href="bower_components/iron-pages/iron-pages.html">
 		<link rel="import" href="components/o-parse/o-parse-connect.html"></script>
 		<link rel="import" href="components/o-parse/o-parse-login-button.html"></script>
-	</head>
-	<body>
-		<o-parse-connect></o-parse-connect>
-		<iron-pages selected="0">
-		  <div><o-parse-login-button></o-parse-login-button></div>
-		  <div>Two</div>
-		  <div>Three</div>
-		</iron-pages>
-		
-		<script>
+	
+			<script>
 			$(document).ready(function(){
 			
 			document.querySelector('o-parse-login-button').addEventListener('logged', function (e) {
@@ -36,5 +28,15 @@
 			});
 			
 		</script>
+	</head>
+	<body>
+		<o-parse-connect></o-parse-connect>
+		<iron-pages selected="0">
+		  <div><o-parse-login-button></o-parse-login-button></div>
+		  <div>Two</div>
+		  <div>Three</div>
+		</iron-pages>
+		
+	
 	</body>
 </html>
