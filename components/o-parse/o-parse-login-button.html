@@ -1,16 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <dom-module id="o-parse-login-button">
-	<style>
-		p{
-			display:none;
-		}
-	</style>
 	<template>
 		<button id="loggin" on-click="loginFacebook">Facebook login</button>
-		<p>{{userName}}</p>
 	</template>
-	
 <script>
 	Polymer({
 		is:"o-parse-login-button",
@@ -18,9 +11,6 @@
 			logged:{
 				type:Boolean,
 				value:false
-			},
-			userName:{
-				type:String
 			}
 		},
 		ready: function(){
@@ -52,7 +42,7 @@
 				this.logged = false ;
 			  }
 		   if(this.logged){
-			this.$.loggin.style.display = 'none';
+				this.fire('logged',{logStatus:true});
 		   }
 		},
 		
@@ -66,13 +56,16 @@
 					if (!user.existed()) {
 						console.dir(user);
 						alert("User signed up and logged in through Facebook!");
+						this.fire('logged',{logStatus:true});
 					} else {
 					console.dir(user);
 						alert("User logged in through Facebook!");
+						this.fire('logged',{logStatus:true});
 					}
 				},
 				error: function(user, error) {
 					alert("User cancelled the Facebook login or did not fully authorize.");
+					this.fire('logged',{logStatus:false});
 				}
 			});
 		}

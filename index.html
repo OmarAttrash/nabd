@@ -8,37 +8,24 @@
 		<script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 		<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 		<link rel="import" href="bower_components/polymer/polymer.html">
+		<link rel="import" href="bower_components/iron-pages/iron-pages.html">
 		<link rel="import" href="components/o-parse/o-parse-connect.html"></script>
 		<link rel="import" href="components/o-parse/o-parse-login-button.html"></script>
 	</head>
 	<body>
 		<o-parse-connect></o-parse-connect>
-		<o-parse-login-button></o-parse-login-button>
-		<script>/*
-			// Run code after the Facebook SDK is loaded.
-			var Pull = Parse.Object.extend("Pull");
-			var pull = new Pull();
-			pull.set("question","are you you ?");
-			pull.set("answers",["answer1","answer3","where is answer 2"]);
-			pull.save(null,{
-				success : function(pull){
-					alert("it worked,go check you databaste and try to figure out how to add authoriztion for this btw the id is: "+ pull.id);
-				},
-				error:function(pull,error){
-					alert('Failed to create new object, with error code: ' + error.message);
-				}
-			});
-			
-			var Pulls = Parse.Collection.extend();
-			var pulls = new Pulls;
-			pulls.query = new Parse.Query(Pull);
-			pulls.fetch();
-			console.dir(pulls);
-			
-		 };*/
-		</script>
+		<iron-pages selected="0">
+		  <div><o-parse-login-button></o-parse-login-button></div>
+		  <div>Two</div>
+		  <div>Three</div>
+		</iron-pages>
 		
-		<h1>The 4 test had succesed</h1>
-		<p>keep going</p>
+		<script>
+			document.querySelector('o-parse-login-button').addEventListener('logged', function (e) {
+				if(e.detail.logStatus)){
+						document.querySelector('iron-pages').selected = 1;
+				}
+			})
+		</script>
 	</body>
 </html>
