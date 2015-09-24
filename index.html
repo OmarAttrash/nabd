@@ -15,14 +15,14 @@
 			<script>
 			$(document).ready(function(){
 			
-			document.querySelector('o-parse-login-button').addEventListener('logged', function (e) {
+			document.getElementById('login').addEventListener('logged', function (e) {
 					console.log(e.detail.logStatus);
 				if(e.detail.logStatus){
 					
 						document.querySelector('iron-pages').selected = 1;
 				}
 			});
-			document.querySelector('o-parse-login-button').addEventListener('readyy', function (e) {
+			document.querySelector('login').addEventListener('readyy', function (e) {
 					console.log("rrr");
 			});
 			});
@@ -32,7 +32,7 @@
 	<body>
 		<o-parse-connect></o-parse-connect>
 		<iron-pages selected="0">
-		  <div><o-parse-login-button></o-parse-login-button></div>
+		  <div><o-parse-login-button id="login"></o-parse-login-button></div>
 		  <div>Two</div>
 		  <div>Three</div>
 		</iron-pages>
