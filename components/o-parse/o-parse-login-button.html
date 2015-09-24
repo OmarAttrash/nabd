@@ -1,13 +1,28 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <dom-module id="o-parse-login-button">
+	<style>
+		p{
+			display:none;
+		}
+	</style>
 	<template>
-		<button on-click="loginFacebook">Facebook login</button>
+		<button id="loggin" on-click="loginFacebook">Facebook login</button>
+		<p>{{userName}}</p>
 	</template>
 	
 <script>
 	Polymer({
 		is:"o-parse-login-button",
+		properties:{
+			logged:{
+				type:boolean,
+				value:false
+			},
+			userName:{
+				type:String
+			}
+		},
 		ready: function(){
 			window.fbAsyncInit = function() {
 			Parse.FacebookUtils.init({
@@ -23,9 +38,26 @@
 			 js = document.createElement('script'); js.id = 'facebook-jssdk';
 			 js.src = "//connect.facebook.net/en_US/sdk.js";
 			 fjs.parentNode.insertBefore(js, fjs);
+			 
+			 
+			FB.getLoginStatus(function(response) {
+				console.dir(response);
+			  if (response.status === 'connected') {
+				this.logged = true ;
+			  }else{
+				this.logged = false ;
+			  }
+		   });
+		   if(this.logged){
+			this.$.loggin.style.display = 'none';
+		   }
 		},
 		
 		loginFacebook: function(){		
+			if(this.logged){
+				console.log("Something went tirrable");
+				return;
+			}
 			Parse.FacebookUtils.logIn(null, {
 				success: function(user) {
 					if (!user.existed()) {
