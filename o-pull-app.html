@@ -7,7 +7,7 @@
 	<template>
 		<o-parse-connect></o-parse-connect>
 		<iron-pages id="pages" selected="0">
-			<div><o-parse-login-button logged="{{userStatus}}" id="login"></o-parse-login-button></div>
+			<div><o-parse-login-button on-logged-change="loging" logged="{{userStatus}}" id="login"></o-parse-login-button></div>
 			<div>Two</div>
 			<div>Three</div>
 		</iron-pages>
@@ -18,7 +18,7 @@
 			ready:function(){
 				this.loging();
 				this.$.login.addEventListener('logged',function(){
-					this.loging();
+					//this.loging();
 				});
 			},
 			loging : function(){
