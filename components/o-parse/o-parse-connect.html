@@ -2,30 +2,15 @@
 
 <dom-module id="o-parse-connect">
 	<template>
-		<script>
-			Parse.initialize("KOqXqY8Sovm20CmDXxPquj1en91Bn5cAmteeoBG8", "NIXpiZJmKu3M26AQQIHO0fc7qWJZIpMdl9VYwCPy");
-			window.fbAsyncInit = function() {
-			Parse.FacebookUtils.init({
-				appId      : '138466529835768',
-				//status     : true,  // check Facebook Login status
-				cookie     : true,  // enable cookies to allow Parse to access the session
-				xfbml      : true,
-				version    : 'v2.4'
-			});
-			 (function(d, s, id){
-			 var js, fjs = d.getElementsByTagName(s)[0];
-			 if (d.getElementById(id)) {return;}
-			 js = d.createElement(s); js.id = id;
-			 js.src = "//connect.facebook.net/en_US/sdk.js";
-			 fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
-		   </script>
 	</template>
 </dom-module>
 
 <script>
 	Polymer({
 		is:"o-parse-connect",
+		ready:function(){
+			Parse.initialize("KOqXqY8Sovm20CmDXxPquj1en91Bn5cAmteeoBG8", "NIXpiZJmKu3M26AQQIHO0fc7qWJZIpMdl9VYwCPy");
+		},
 		properties:{
 			appId:{
 				type:String

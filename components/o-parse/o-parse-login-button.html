@@ -9,6 +9,23 @@
 <script>
 	Polymer({
 		is:"o-parse-login-button",
+		ready:function(){
+			window.fbAsyncInit = function() {
+			Parse.FacebookUtils.init({
+				appId      : '138466529835768',
+				//status     : true,  // check Facebook Login status
+				cookie     : true,  // enable cookies to allow Parse to access the session
+				xfbml      : true,
+				version    : 'v2.4'
+			});
+			 (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		},
 		loginFacebook:function(){		
 			Parse.FacebookUtils.logIn(null, {
 				success: function(user) {
