@@ -20,8 +20,9 @@
 			});
 			
 			// Run code after the Facebook SDK is loaded.
-		
-			Parse.FacebookUtils.logIn(null, {
+			$("#fb-login").on("click",function(){
+						
+				Parse.FacebookUtils.logIn(null, {
 			  success: function(user) {
 				if (!user.existed()) {
 				  alert("User signed up and logged in through Facebook!");
@@ -33,6 +34,7 @@
 				alert("User cancelled the Facebook login or did not fully authorize.");
 			  }
 			});
+			});
 		 };
 
 		  (function(d, s, id){
@@ -43,13 +45,8 @@
 			 fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
 		</script>
-		<div
-		  class="fb-like"
-		  data-share="true"
-		  data-width="450"
-		  data-show-faces="true">
-		</div>
-		<h1>The 2 test had succesed</h1>
+		<button id="fb-login">Facebook login</button>
+		<h1>The 3 test had succesed</h1>
 		<p>keep going</p>
 	</body>
 </html>
