@@ -10,7 +10,7 @@
 	<body>
 		<script>
 			Parse.initialize("KOqXqY8Sovm20CmDXxPquj1en91Bn5cAmteeoBG8", "NIXpiZJmKu3M26AQQIHO0fc7qWJZIpMdl9VYwCPy");
-		  window.fbAsyncInit = function() {
+			window.fbAsyncInit = function() {
 			Parse.FacebookUtils.init({
 				appId      : '138466529835768',
 				//status     : true,  // check Facebook Login status
@@ -20,6 +20,18 @@
 			});
 			
 			// Run code after the Facebook SDK is loaded.
+			var Pull = Parse.Object.extend("Pull");
+			var pull = new Pull();
+			pull.set("question","are you you ?");
+			pull.set("answers",["answer1","answer3","where is answer 2"]);
+			pull.save(null,{
+				success : function(pull){
+					alert("it worked,go check you databaste and try to figure out how to add authoriztion for this btw the id is: "+ pull.id);
+				},
+				error:function(pull,error){
+					alert('Failed to create new object, with error code: ' + error.message);
+				}
+			});
 			$("#fb-login").on("click",function(){
 						
 				Parse.FacebookUtils.logIn(null, {
