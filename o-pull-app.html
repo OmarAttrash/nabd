@@ -60,7 +60,7 @@
 			},
 			pageChanged:function(newVal,oldVal){
 				console.log(newVal);
-				if(newVal == 2 && !commentsLoaded){
+				if(newVal == 2){
 					this.$.comments.innerHTML = '<div class="fb-comments" data-href="'+this.calculateUrl(this.selectedPull)+'" data-numposts="5"></div>';	
 				}
 			}
