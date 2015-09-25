@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+
+<dom-module id="o-parse-pulls">
+	<template>
+		<ul>
+			<iron-list items="[[pulls]]" as="pull">
+				<template>
+					<li>[[pull.question]]</li>
+				</template>
+			</iron-list>
+		</ul>
+	</template>
+	
+	<script>
+	Polymer({
+		is:"o-parse-pulls",
+		ready: function(){
+			var root = this;
+			var Pull = Parse.Object.extend("Pull");
+			var query = new Parse.Query(GameScore);
+			query.limit(25);
+			query.descending("createdAt");
+			query.find().then(function(results) {
+				root.pulls = results;
+			});
+		}
+	});
+</script>
+</dom-module>
+

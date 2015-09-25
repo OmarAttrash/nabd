@@ -1,6 +1,7 @@
 <link rel="import" href="bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="components/o-parse/o-parse-connect.html"></script>
 <link rel="import" href="components/o-parse/o-parse-login-button.html"></script>
+<link rel="import" href="components/o-parse/o-parse-pulls.html"></script>
 <link rel="import" href="bower_components/polymer/polymer.html">
 
 <dom-module id="o-pull-app">
@@ -8,7 +9,7 @@
 		<o-parse-connect></o-parse-connect>
 		<iron-pages id="pages" selected="0">
 			<div><o-parse-login-button logged="{{userStatus}}" id="login"></o-parse-login-button></div>
-			<div>Two</div>
+			<div><o-parse-pulls></o-parse-pulls></div>
 			<div>Three</div>
 		</iron-pages>
 	</template>
