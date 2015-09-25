@@ -16,6 +16,12 @@
 	Polymer({
 		is:"o-parse-pulls",
 		ready: function(){
+			
+		},
+		addHash : function(s){
+			return '#' + s;
+		}
+		loadPulls : function(){
 			var root = this;
 			var Pull = Parse.Object.extend("Pull");
 			var query = new Parse.Query(Pull);
@@ -27,10 +33,7 @@
 					console.dir(results);
 				}
 			});
-		},
-		addHash : function(s){
-			return '#' + s;
-		}
+		}	
 	});
 </script>
 </dom-module>
