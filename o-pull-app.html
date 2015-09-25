@@ -11,13 +11,10 @@
 			<div><o-parse-login-button logged="{{userStatus}}" id="login"></o-parse-login-button></div>
 			<div><o-parse-pulls></o-parse-pulls></div>
 			<div>
-				<h1>{{selectedPull}}</h1>
-				<div class="fb-comments" data-href="https://omarattrash.github.io/nabd/?pull=1" data-numposts="5"></div>				
-				<div class="fb-comments" data-href="https://omarattrash.github.io/nabd/?pull=2425" data-numposts="5"></div>				
-				<div class="fb-comments" data-href="https://omarattrash.github.io/nabd/#1" data-numposts="5"></div>				
-				<div class="fb-comments" data-href="https://omarattrash.github.io/nabd/#2" data-numposts="5"></div>				
-				<div class="fb-comments" data-href="{{calculateUrl(selectedPull)}}" data-numposts="5"></div>				
-				<div class="fb-comments" data-href="{{calculateUrl(12344)}}" data-numposts="5"></div>				
+				<h1>{{selectedPull}}</h1>			
+				<div class="fb-comments" data-href="https://omarattrash.github.io/nabd/#" data-numposts="5"></div>							
+				<div class="fb-comments" data-href="{{calculateUrl(selectedPull)}}" data-numposts="5"></div>							
+				<div class="fb-comments" data-numposts="5"></div>							
 			</div>
 		</iron-pages>
 	</template>
