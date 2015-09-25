@@ -75,10 +75,11 @@
 						success: function(results) {
 							root.selectedPullObject = results;
 							console.dir(root.selectedPullObject);
+							this.$.comments.innerHTML = '<div class="fb-comments" data-href="'+this.calculateUrl(this.selectedPull)+'" data-numposts="5"></div>';	
+							FB.XFBML.parse();
 						}
 					});
-					this.$.comments.innerHTML = '<div class="fb-comments" data-href="'+this.calculateUrl(this.selectedPull)+'" data-numposts="5"></div>';	
-					FB.XFBML.parse();
+					
 				}
 			}
 		});
