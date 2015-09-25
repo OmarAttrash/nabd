@@ -21,8 +21,11 @@
 			var query = new Parse.Query(Pull);
 			query.limit(25);
 			query.descending("createdAt");
-			query.find().then(function(results) {
-				root.pulls = results;
+			query.find({
+				success: function(results) {
+					root.pulls = results;
+					console.dir(results);
+				}
 			});
 		}
 	});
