@@ -2,6 +2,7 @@
 <link rel="import" href="components/o-parse/o-parse-connect.html"></script>
 <link rel="import" href="components/o-parse/o-parse-login-button.html"></script>
 <link rel="import" href="components/o-parse/o-parse-pulls.html"></script>
+<link rel="import" href="bower_components/iron-list/iron-list.html">
 <link rel="import" href="bower_components/polymer/polymer.html">
 
 <dom-module id="o-pull-app">
@@ -11,7 +12,14 @@
 			<div><o-parse-login-button logged="{{userStatus}}" id="login"></o-parse-login-button></div>
 			<div><o-parse-pulls></o-parse-pulls></div>
 			<div>
-				<h1>{{selectedPull}}</h1>			
+				<h1>{{selectedPullObject.attributes.question}}</h1>	
+				<ul>
+					<iron-list items="[[selectedPullObject.attributes.answers]]" as="answer">
+						<template>
+							<li>[[answer]]</li>
+						</template>
+					</iron-list>	
+				</ul>				
 				<div id="comments"></div>
 			</div>
 		</iron-pages>
@@ -59,8 +67,17 @@
 				//return "https://omarattrash.github.io/nabd/?pull=" + s ;
 			},
 			pageChanged:function(newVal,oldVal){
-				console.log(newVal);
 				if(newVal == 2){
+					var root = this;
+					var Pull = Parse.Object.extend("Pull");
+					var query = new Parse.Query(Pull);
+					query.limit(1);
+					query.equalTo("objcetId",this.selectedPull);
+					query.find({
+						success: function(results) {
+							root.selectedPullObject = results;
+						}
+					});
 					this.$.comments.innerHTML = '<div class="fb-comments" data-href="'+this.calculateUrl(this.selectedPull)+'" data-numposts="5"></div>';	
 					FB.XFBML.parse();
 				}
