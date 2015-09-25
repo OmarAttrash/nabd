@@ -10,7 +10,10 @@
 		<iron-pages id="pages" selected="0">
 			<div><o-parse-login-button logged="{{userStatus}}" id="login"></o-parse-login-button></div>
 			<div><o-parse-pulls></o-parse-pulls></div>
-			<div>{{selectedPull}}</div>
+			<div>
+				<h1>{{selectedPull}}</h1>
+				<div class="fb-comments" data-href="calculateUrl(selectedPull)" data-numposts="5"></div>				
+			</div>
 		</iron-pages>
 	</template>
 	<script>
@@ -41,7 +44,10 @@
 						this.$.pages.selected = 2;
 					} 
 				}
+			},
+			calculateUrl: function(s){
+				return "https://omarattrash.github.io/nabd/#" + s ;
 			}
-			});
+		});
 	</script>
 </dom-module>
