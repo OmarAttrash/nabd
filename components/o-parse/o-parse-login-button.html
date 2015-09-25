@@ -19,19 +19,6 @@
 				console.log("Using o-parse-login-button require initing the Parse elsewhere. check if o-parse-connect element inculded before this element");
 				return;
 			}
-			
-			 if (Parse.User.current() != null) {
-				this.logged = true ;
-			  }else{
-				this.logged = false ;
-			  }
-		},
-		
-		loginFacebook: function(){		
-			if(this.logged){
-				console.log("Something went tirrable");
-				return;
-			}
 			window.fbAsyncInit = function() {
 			Parse.FacebookUtils.init({
 				appId      : '138466529835768',
@@ -49,6 +36,18 @@
 			 
 			 
 			
+			 if (Parse.User.current() != null) {
+				this.logged = true ;
+			  }else{
+				this.logged = false ;
+			  }
+		},
+		
+		loginFacebook: function(){		
+			if(this.logged){
+				console.log("Something went tirrable");
+				return;
+			}
 			var root = this;
 			Parse.FacebookUtils.logIn("public_profile,email", {
 				success: function(user) {
