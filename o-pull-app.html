@@ -6,12 +6,12 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 
 <dom-module id="o-pull-app">
+	<template>
 	<style>
 		iframe{
 			left:0;
 		}
 	</style>
-	<template>
 		<o-parse-connect></o-parse-connect>
 		<iron-pages id="pages" selected="{{page}}">
 			<div><o-parse-login-button logged="{{userStatus}}" id="login"></o-parse-login-button></div>
