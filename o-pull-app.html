@@ -72,7 +72,7 @@
 					var Pull = Parse.Object.extend("Pull");
 					var query = new Parse.Query(Pull);
 					query.limit(1);
-					query.equalTo("objcetId",this.selectedPull);
+					query.equalTo("id",this.selectedPull);
 					query.find({
 						success: function(results) {
 							root.selectedPullObject = results;
