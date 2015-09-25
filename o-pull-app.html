@@ -7,20 +7,21 @@
 <dom-module id="o-pull-app">
 	<template>
 		<o-parse-connect></o-parse-connect>
-		<iron-pages id="pages" selected="0">
+		<iron-pages id="pages" selected="{{page}}">
 			<div><o-parse-login-button logged="{{userStatus}}" id="login"></o-parse-login-button></div>
 			<div><o-parse-pulls></o-parse-pulls></div>
 			<div>
 				<h1>{{selectedPull}}</h1>			
-				<div class="fb-comments" data-href="https://omarattrash.github.io/nabd/#" data-numposts="5"></div>							
-				<div class="fb-comments" data-href="{{calculateUrl(selectedPull)}}" data-numposts="5"></div>							
-				<div class="fb-comments" data-numposts="5"></div>							
+				<div id="comments"></div>
 			</div>
 		</iron-pages>
 	</template>
 	<script>
 		Polymer({
 			is:"o-pull-app",
+			properties:{
+				commentsLoaded:false;
+			}
 			ready:function(){
 				this.loging();
 				var root = this;
@@ -51,6 +52,11 @@
 				console.log(s);
 				return "https://omarattrash.github.io/nabd/#" + s ;
 				//return "https://omarattrash.github.io/nabd/?pull=" + s ;
+			},
+			pageChanged:function(newVal,oldVal){
+				if(newVal == 2 && !commentsLoaded){
+					this.$.comments.innerHTML = '<div class="fb-comments" data-href="'+this.calculateUrl(this.selectedPull)+'" data-numposts="5"></div>';	
+				}
 			}
 		});
 	</script>
