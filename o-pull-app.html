@@ -71,9 +71,7 @@
 					var root = this;
 					var Pull = Parse.Object.extend("Pull");
 					var query = new Parse.Query(Pull);
-					query.limit(1);
-					query.equalTo("id",this.selectedPull);
-					query.find({
+					query.get(this.selectedPull,{
 						success: function(results) {
 							root.selectedPullObject = results;
 							console.dir(root.selectedPullObject);
