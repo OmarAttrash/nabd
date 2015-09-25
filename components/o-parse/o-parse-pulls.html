@@ -6,7 +6,7 @@
 		<ul>
 			<iron-list items="[[pulls]]" as="pull">
 				<template>
-					<li>[[pull.attributes.question]]</li>
+					<li><a href="#[[pull.id]]">[[pull.attributes.question]]</a></li>
 				</template>
 			</iron-list>
 		</ul>
