@@ -18,7 +18,7 @@
 		ready: function(){
 			var root = this;
 			var Pull = Parse.Object.extend("Pull");
-			var query = new Parse.Query(GameScore);
+			var query = new Parse.Query(Pull);
 			query.limit(25);
 			query.descending("createdAt");
 			query.find().then(function(results) {
