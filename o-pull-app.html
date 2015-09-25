@@ -36,6 +36,10 @@
 			loging : function(){
 				if(this.userStatus === true){
 					this.$.pages.selected = 1;
+					if(window.location.hash) {
+						root.selectedPull = window.location.hash.substring(1);
+						root.$.pages.selected = 2;
+					} 
 				}
 			}
 			});
