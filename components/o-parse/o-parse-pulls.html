@@ -6,7 +6,7 @@
 		<ul>
 			<iron-list items="[[pulls]]" as="pull">
 				<template>
-					<li><a href="#[[pull.id]]">[[pull.attributes.question]]</a></li>
+					<li><a href="[[addHash(pull.id)]]">[[pull.attributes.question]]</a></li>
 				</template>
 			</iron-list>
 		</ul>
@@ -27,6 +27,9 @@
 					console.dir(results);
 				}
 			});
+		},
+		addHash : function(s){
+			return '#' + s;
 		}
 	});
 </script>
