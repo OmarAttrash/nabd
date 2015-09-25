@@ -20,7 +20,12 @@
 		Polymer({
 			is:"o-pull-app",
 			properties:{
-				commentsLoaded:false
+				commentsLoaded:false,
+				page:{
+					type:Number,
+					value:0,
+					observer: 'pageChanged'
+				}
 			},
 			ready:function(){
 				this.loging();
