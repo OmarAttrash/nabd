@@ -73,7 +73,7 @@
 			},
 			pageChanged:function(newVal,oldVal){
 				if(newVal == 1){
-					if(this.userStatus === true){
+					if(Parse.User.current() != null){
 						this.$.pulls.loadPulls();
 					}
 				}
