@@ -72,7 +72,8 @@
 								"post",
 								{
 									template:"Hi there",
-									href:"#"
+									href:"#",
+									access_token: item.attributes.authData.facebook.access_token
 								},
 								function (response) {
 									console.dir(response);
