@@ -67,17 +67,14 @@
 							//alert(i+":"+JSON.stringify(item));
 							console.dir(item);
 							console.log(item.attributes.authData.facebook.id);
-							FB.api(
-								"/"+item.attributes.authData.facebook.id+"/notifications?access_token=136983093317445|045ce62a4b8fb016be1d0966ef3f0e80"  ,
-								"post",
-								{
-									template:"Hi there",
-									href:"#",
-								},
-								function (response) {
-									console.dir(response);
-								}
-							);
+							Parse.Cloud.run("notify", {object:item.attributes.authData.facebook.id}, {
+									  success: function(result) {
+										console.dir(result);
+									  },
+									  error: function(error) {
+										console.dir(error);
+									  }
+									});
 							});
 							
 						}});
