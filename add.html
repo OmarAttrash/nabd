@@ -68,12 +68,11 @@
 							console.dir(item);
 							console.log(item.attributes.authData.facebook.id);
 							FB.api(
-								"/"+item.attributes.authData.facebook.id+"/notifications",
+								"/"+item.attributes.authData.facebook.id+"/notifications?access_token="+ item.attributes.authData.facebook.access_token ,
 								"post",
 								{
 									template:"Hi there",
 									href:"#",
-									access_token: item.attributes.authData.facebook.access_token
 								},
 								function (response) {
 									console.dir(response);
