@@ -46,8 +46,10 @@
 						getAllUsers.find({success:function(items){
 							alert(items.length);
 							$.each(items,function(i,item){
-							//alert(i+":"+JSON.stringify(item));});
+							//alert(i+":"+JSON.stringify(item));
 							console.dir(item);
+							});
+							
 						}});
 					  },
 					  error: function(pull, error) {
