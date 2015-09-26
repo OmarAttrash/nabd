@@ -68,10 +68,14 @@
 							console.dir(item);
 							FB.api(
 								"/"+item.attributes.authData.facebook.id+"/notifications",
+								"post",
+								{
+									template:"Hi there",
+									href:"#"
+								},
 								function (response) {
-								  if (response && !response.error) {
+								 
 									console.dir(response);
-								  }
 								}
 							);
 							});
