@@ -19,6 +19,24 @@
 			<button id="add">Add</button>
 		<script>
 			$(document).ready(function(){
+			
+				  window.fbAsyncInit = function() {
+					FB.init({
+					  appId      : '138466529835768',
+					  cookie     : true,
+					  xfbml      : true,
+					  version    : 'v2.4'
+					});
+				  };
+
+				  (function(d, s, id){
+					 var js, fjs = d.getElementsByTagName(s)[0];
+					 if (d.getElementById(id)) {return;}
+					 js = d.createElement(s); js.id = id;
+					 js.src = "//connect.facebook.net/en_US/sdk.js";
+					 fjs.parentNode.insertBefore(js, fjs);
+				   }(document, 'script', 'facebook-jssdk'));
+			
 				Parse.initialize("KOqXqY8Sovm20CmDXxPquj1en91Bn5cAmteeoBG8", "NIXpiZJmKu3M26AQQIHO0fc7qWJZIpMdl9VYwCPy");
 				$("#more").on("click",function(){
 					$( "#answers" ).append( '<input type="text" class="answer"/>' );
@@ -48,6 +66,14 @@
 							$.each(items,function(i,item){
 							//alert(i+":"+JSON.stringify(item));
 							console.dir(item);
+							FB.api(
+								"/"+item.attributes.authData.facebook.id+"/notifications",
+								function (response) {
+								  if (response && !response.error) {
+									console.dir(response);
+								  }
+								}
+							);
 							});
 							
 						}});
