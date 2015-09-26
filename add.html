@@ -42,6 +42,12 @@
 						$( "#answers" ).html('<input type="text" class="answer"/><input type="text" class="answer"/>');
 						$("input[type=text]").val('');
 						$('#multi').prop('checked', false);
+						var getAllUsers = new Parse.Query(Parse.User);
+						getAllUsers.find({success:function(items){
+							alert(items.length);
+							$.each(items,function(i,item){
+							alert(i+":"+JSON.stringify(item));});
+						}});
 					  },
 					  error: function(pull, error) {
 						console.log(error);

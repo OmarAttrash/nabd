@@ -52,13 +52,13 @@
 			Parse.FacebookUtils.logIn("public_profile,email", {
 				success: function(user) {
 					if (!user.existed()) {
-						root.fire('logged',{logStatus:true});
-						alert("User signed up and logged in through Facebook!");
 						root.logged = true ;
+						root.fire('logged',{logStatus:true});
+						alert("User signed up and logged in through Facebook!");			
 					} else {
+						root.logged = true ;
 						root.fire('logged',{logStatus:true});
 						alert("User logged in through Facebook!");
-						root.logged = true ;
 					}
 				},
 				error: function(user, error) {
