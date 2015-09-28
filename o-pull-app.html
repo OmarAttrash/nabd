@@ -98,6 +98,8 @@
 				var answsersArray = [];
 				console.dir(checkboxes);
 				for(var i=0;i<checkboxes.length;i++){
+					console.log(checkboxes[i].checked);
+					console.dir(checkboxes[i]);
 					if(checkboxes[i].checked){
 						answsersArray.push(checkboxes[i].value);
 					}
