@@ -105,8 +105,10 @@
 					}
 					
 				}
-				console.dir(answsersArray);
-				Parse.Cloud.run("vote", {answers:answsersArray,pullId:root.selectedPullObject.id}, {
+			
+				var req = {answers:answsersArray,pullId:root.selectedPullObject.id};
+				console.dir(req);
+				Parse.Cloud.run("vote", req, {
 									  success: function(result) {
 										console.dir(result);
 									  },
