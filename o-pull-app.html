@@ -21,7 +21,7 @@
 				<ul id="votes">
 					<iron-list items="[[selectedPullObject.attributes.answers]]" as="answer" index-as="index">
 						<template>
-							<li><input type="checkbox" value="[[index]]" on-click="vote()" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
+							<li><input type="checkbox" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
 						</template>
 					</iron-list>	
 				</ul>				
