@@ -52,7 +52,8 @@
 					pull.save({
 					  question: $("#question").val(),
 					  answers: answers,
-					  multi: document.getElementById("multi").checked
+					  multi: document.getElementById("multi").checked,
+					  votes:[]
 					}, {
 					  success: function(pull) {
 						alert("Saved");
