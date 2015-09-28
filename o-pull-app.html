@@ -18,10 +18,10 @@
 			<div><o-parse-pulls id="pulls"></o-parse-pulls></div>
 			<div>
 				<h1>{{selectedPullObject.attributes.question}}</h1>	
-				<ul>
-					<iron-list items="[[selectedPullObject.attributes.answers]]" as="answer">
+				<ul id="votes">
+					<iron-list items="[[selectedPullObject.attributes.answers]]" as="answer" index-as="index">
 						<template>
-							<li>[[answer]]</li>
+							<li><input type="checkbox" value="[[index]]" on-click="vote()" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
 						</template>
 					</iron-list>	
 				</ul>				
@@ -91,6 +91,25 @@
 					});
 					
 				}
+			},
+			vote : function(){
+				var root =this;
+				var checkboxes = this.$.votes.$$('li input[type=checkbox]');
+				var answsersArray = [];
+				console.dir(checkboxes);
+				for(var i=0;i<checkboxes.length;i++){
+					if(checkboxes[i].checked){
+						answsersArray.push(checkboxes[i].value);
+					}
+				}
+				Parse.Cloud.run("vote", {answers:answsersArray,pullId:root.selectedPullObject.id}, {
+									  success: function(result) {
+										console.dir(result);
+									  },
+									  error: function(error) {
+										console.dir(error);
+									  }
+				});
 			}
 		});
 	</script>

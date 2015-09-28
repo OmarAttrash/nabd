@@ -47,7 +47,7 @@
 					var answersInputs = $(".answer").toArray();
 					var answers = [];
 					for(var i=0;i<answersInputs.length;i++){
-						answers.push($(answersInputs[i]).val());
+						answers.push({answer:$(answersInputs[i]).val(),votes:0});
 					}
 					pull.save({
 					  question: $("#question").val(),
