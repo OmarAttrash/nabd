@@ -103,6 +103,7 @@
 					if(checkboxes[i].checked){
 						answsersArray.push(checkboxes[i].value);
 					}
+					console.dir(answsersArray);
 				}
 				Parse.Cloud.run("vote", {answers:answsersArray,pullId:root.selectedPullObject.id}, {
 									  success: function(result) {
