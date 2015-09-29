@@ -21,10 +21,10 @@
 				<ul id="votes">
 					<iron-list items="[[selectedPullObject.answers]]" as="answer" index-as="index">
 						<template>
-							<template if="[[!selectedPullObject.multi]]">
+							<template if="{{!selectedPullObject.multi}}">
 								<li><input type="checkbox" name="answer" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
 							</template>
-							<template if="[[selectedPullObject.multi]]">
+							<template if="{{selectedPullObject.multi}}">
 								<li><input type="radio" name="answer" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
 							</template>
 						</template>
