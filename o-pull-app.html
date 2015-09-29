@@ -81,7 +81,7 @@
 					var root = this;
 					var Pull = Parse.Object.extend("Pull");
 					var query = new Parse.Query(Pull);
-					query.get(this.selectedPull,{
+					Parse.Cloud.run("getAnswers", {pullId:this.selectedPull}, {
 						success: function(results) {
 							root.selectedPullObject = results;
 							console.dir(root.selectedPullObject);
