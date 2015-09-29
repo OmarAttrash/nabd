@@ -19,16 +19,20 @@
 			<div>
 				<h1>{{selectedPullObject.question}}</h1>	
 				<ul id="votes">
+				<template is="dom-if" if="{{!selectedPullObject.multi}}">
 					<iron-list items="[[selectedPullObject.answers]]" as="answer" index-as="index">
 						<template>
-							<template is="dom-if" if="{{!selectedPullObject.multi}}">
-								<li><input type="checkbox" name="answer" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
-							</template>
-							<template is="dom-if" if="{{selectedPullObject.multi}}">
-								<li><input type="radio" name="answer" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
-							</template>
+								<li><input type="checkbox" name="answer" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>						
 						</template>
 					</iron-list>	
+				</template>
+				<template is="dom-if" if="{{selectedPullObject.multi}}">
+					<iron-list items="[[selectedPullObject.answers]]" as="answer" index-as="index">
+						<template>				
+								<li><input type="radio" name="answer" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>						
+						</template>
+					</iron-list>	
+				</template>
 				</ul>				
 				<div id="comments"></div>
 			</div>
