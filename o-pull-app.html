@@ -20,8 +20,11 @@
 				<h1>{{selectedPullObject.question}}</h1>	
 				<ul id="votes">
 					<iron-list items="[[selectedPullObject.answers]]" as="answer" index-as="index">
-						<template>
-							<li><input type="checkbox" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
+						<template if="[[selectedPullObject.multi]]">
+							<li><input type="checkbox" name="answer" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
+						</template>
+						<template if="[[!selectedPullObject.multi]]">
+							<li><input type="radio" name="answer" value="[[index]]" on-click="vote" checked="[[answer.checked]]"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>
 						</template>
 					</iron-list>	
 				</ul>				
@@ -95,7 +98,7 @@
 			},
 			vote : function(){
 				var root =this;
-				var checkboxes = Polymer.dom(this.$.votes).querySelectorAll('li input[type=checkbox]');
+				var checkboxes = Polymer.dom(this.$.votes).querySelectorAll('li input[name=answer]');
 				var answsersArray = [];
 				console.dir(checkboxes);
 				for(var i=0;i<checkboxes.length;i++){
