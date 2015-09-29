@@ -83,6 +83,7 @@
 					var query = new Parse.Query(Pull);
 					Parse.Cloud.run("getAnswers", {pullId:this.selectedPull}, {
 						success: function(results) {
+							console.dir(results);
 							root.selectedPullObject = results;
 							console.dir(root.selectedPullObject);
 							root.$.comments.innerHTML = '<div class="fb-comments" data-href="'+root.calculateUrl(root.selectedPull)+'" data-numposts="5"></div>';	
