@@ -29,12 +29,7 @@
 				<template is="dom-if" if="{{selectedPullObject.multi}}">
 					<iron-list items="[[selectedPullObject.answers]]" as="answer" index-as="index">
 						<template>	
-							<template is="dom-if" if="{{answer.checked}}">
-								<li><input type="radio" name="answer" value="[[index]]" on-click="vote" checked/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>						
-							</template>
-							<template is="dom-if" if="{{!answer.checked}}">
-								<li><input type="radio" name="answer" value="[[index]]" on-click="vote"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>						
-							</template>
+								<li><input type="radio" name="answer" value="[[index]]" on-click="vote" checked?="{{answer.checked}}"/><span>[[answer.answer]]</span>  votes:<span>[[answer.votes]]</span></li>						
 						</template>
 					</iron-list>	
 				</template>
